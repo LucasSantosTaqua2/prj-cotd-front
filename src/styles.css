@@ -1,0 +1,18 @@
+/* src/styles.css */
+@import 'ngx-toastr/toastr';
+
+/* Definição de variáveis CSS para as cores */
+:root {
+  --background-dark: #121212;
+  --text-light: #E0E0E0;
+  --primary-color: #E4002B; /* Vermelho Ferrari */
+  --secondary-color: #00A693; /* Verde/Azul da F1 */
+}
+
+body {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  font-family: 'Roboto', sans-serif; /* Lembre de importar a fonte no index.html */
+  margin: 0;
+  padding: 0;
+}

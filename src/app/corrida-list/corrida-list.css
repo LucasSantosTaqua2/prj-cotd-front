@@ -1,0 +1,147 @@
+.container {
+  max-width: 900px; /* Aumenta a largura máxima para tablets e desktops */
+  margin: 0 auto;
+  padding: 1rem; /* Reduz o padding em telas pequenas */
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.header p {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.corridas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.corrida-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease-in-out;
+}
+
+.corrida-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  text-align: left;
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--text-light);
+}
+
+.data {
+  margin: 0.5rem 0 0;
+  font-style: italic;
+  color: #a0a0a0;
+}
+
+.vote-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.vote-button:hover {
+  background-color: #c40023;
+}
+
+.no-races-message {
+  font-style: italic;
+  color: #a0a0a0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .header h1 {
+    font-size: 3rem;
+  }
+
+  .header p {
+    font-size: 1.2rem;
+  }
+
+  .corrida-card {
+    flex-direction: row; /* Volta a ser uma linha em telas maiores */
+    align-items: center;
+    padding: 1.5rem;
+  }
+  
+  .vote-button {
+    width: auto;
+    margin-top: 0;
+  }
+}
+
+.closed-voting-message {
+  font-weight: bold;
+  color: #999;
+}
+
+.results-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.results-button:hover {
+  background-color: #008779;
+}
+
+.ranking-link {
+  color: var(--secondary-color);
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.ranking-link:hover {
+  text-decoration: underline;
+}
+
+/* Media Query para telas menores que 768px */
+@media (max-width: 767px) {
+  .results-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
