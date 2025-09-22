@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 interface Corrida {
   id: number;
@@ -17,7 +18,7 @@ interface Corrida {
 
 export class ApiService {
 
-  private apiUrl = process.env['NG_APP_API_URL'] // URL da sua API em Python
+   private apiUrl = environment.apiUrl; // URL da sua API em Python
 
   constructor(private http: HttpClient) { }
 
