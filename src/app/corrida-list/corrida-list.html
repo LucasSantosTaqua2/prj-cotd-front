@@ -1,9 +1,10 @@
 <div class="container">
-  <div class="header">
-    <h1>Cabaço of the Day</h1>
-    <p>Vote no piloto que teve o pior desempenho do fim de semana!</p>
-    <a routerLink="/ranking-geral" class="ranking-link">Ver Ranking Geral</a>
-  </div>
+<div class="header">
+  <h1>Cabaço Of The Day</h1>
+  <span class="powered-by">powered by Tá Potente</span>
+  <p>Vote no piloto que teve o pior desempenho do fim de semana!</p>
+  <a routerLink="/ranking-geral" class="ranking-link">Ver Ranking Geral</a>
+</div>
 
   <div class="corridas-list">
     <p *ngIf="corridas.length === 0" class="no-races-message">Nenhuma corrida disponível no momento.</p>
