@@ -17,7 +17,7 @@ export class Login {
   username = '';
   password = '';
   errorMessage = '';
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'https://prj-cotd-back-production.up.railway.app';
 
   constructor(private http: HttpClient, private router: Router) { }
 
