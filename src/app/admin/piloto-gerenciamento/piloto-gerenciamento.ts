@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class PilotoGerenciamento implements OnInit {
 
   pilotos: any[] = [];
-  currentPiloto: any = { nome: '', equipe: '', foto: '' };
+  currentPiloto: any = { nome: '', equipe: '', foto: '', ativo: true };
   isEditing = false;
 
   constructor(private apiService: ApiService, private toastr: ToastrService) { }
@@ -68,6 +68,6 @@ export class PilotoGerenciamento implements OnInit {
 
   resetForm(): void {
     this.isEditing = false;
-    this.currentPiloto = { nome: '', equipe: '', foto: '' };
+    this.currentPiloto = { nome: '', equipe: '', foto: '', ativo: true };
   }
 }

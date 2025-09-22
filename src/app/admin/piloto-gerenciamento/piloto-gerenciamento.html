@@ -5,17 +5,15 @@
     <h2>{{ isEditing ? 'Editar Piloto' : 'Adicionar Piloto' }}</h2>
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" [(ngModel)]="currentPiloto.nome" required>
-      </div>
-      <div class="form-group">
-        <label for="equipe">Equipe:</label>
-        <input type="text" id="equipe" name="equipe" [(ngModel)]="currentPiloto.equipe" required>
-      </div>
-      <div class="form-group">
         <label for="foto">URL da Foto:</label>
         <input type="text" id="foto" name="foto" [(ngModel)]="currentPiloto.foto">
       </div>
+
+      <div class="form-group-check">
+        <input type="checkbox" id="ativo" name="ativo" [(ngModel)]="currentPiloto.ativo">
+        <label for="ativo">Piloto Ativo</label>
+      </div>
+      
       <button type="submit">{{ isEditing ? 'Salvar Alterações' : 'Adicionar' }}</button>
       <button *ngIf="isEditing" type="button" class="cancel-button" (click)="cancelEdit()">Cancelar</button>
     </form>
@@ -26,11 +24,12 @@
     <div class="list-header">
       <span>Nome</span>
       <span>Equipe</span>
-      <span>Ações</span>
+      <span>Status</span> <span>Ações</span>
     </div>
     <div *ngFor="let piloto of pilotos" class="piloto-item">
       <span>{{ piloto.nome }}</span>
       <span>{{ piloto.equipe }}</span>
+      <span>{{ piloto.ativo ? 'Ativo' : 'Inativo' }}</span> 
       <div class="actions">
         <button (click)="onEdit(piloto)" class="edit-button">Editar</button>
         <button (click)="onDelete(piloto.id)" class="delete-button">Excluir</button>

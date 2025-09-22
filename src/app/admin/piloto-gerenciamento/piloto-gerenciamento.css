@@ -31,6 +31,22 @@
   margin-bottom: 1rem;
 }
 
+.form-group-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-group-check input {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* Ajuste o grid da lista de pilotos para a nova coluna */
+.list-header, .piloto-item {
+  grid-template-columns: 2fr 2fr 1fr 1fr; /* Adicione uma coluna */
+}
+
 .form-group label {
   display: block;
   font-weight: bold;
