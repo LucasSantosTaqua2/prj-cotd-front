@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="header">
+    <h1>Cabaço of the Day</h1>
+    <p>Vote no piloto que teve o pior desempenho do fim de semana!</p>
+    <a routerLink="/ranking-geral" class="ranking-link">Ver Ranking Geral</a>
+  </div>
+
+  <div class="corridas-list">
+    <p *ngIf="corridas.length === 0" class="no-races-message">Nenhuma corrida disponível no momento.</p>
+
+    <div *ngFor="let corrida of corridas" class="corrida-card">
+      <div class="card-content">
+        <h2>{{ corrida.nome }}</h2>
+        <p class="data">{{ corrida.data_corrida | date: 'longDate' }}</p>
+      </div>
+      <ng-container *ngIf="!corrida.votacao_fechada">
+        <a [routerLink]="['/votar', corrida.id]" class="vote-button">Votar</a>
+      </ng-container>
+      <ng-container *ngIf="corrida.votacao_fechada">
+        <span class="closed-voting-message">Votação Encerrada</span>
+        <a [routerLink]="['/resultados', corrida.id]" class="results-button">Ver Resultados</a>
+      </ng-container>
+    </div>
+  </div>
+</div>

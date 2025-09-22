@@ -1,0 +1,40 @@
+<div class="gerenciamento-container">
+  <h1>Gerenciar Pilotos</h1>
+
+  <div class="form-card">
+    <h2>{{ isEditing ? 'Editar Piloto' : 'Adicionar Piloto' }}</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" [(ngModel)]="currentPiloto.nome" required>
+      </div>
+      <div class="form-group">
+        <label for="equipe">Equipe:</label>
+        <input type="text" id="equipe" name="equipe" [(ngModel)]="currentPiloto.equipe" required>
+      </div>
+      <div class="form-group">
+        <label for="foto">URL da Foto:</label>
+        <input type="text" id="foto" name="foto" [(ngModel)]="currentPiloto.foto">
+      </div>
+      <button type="submit">{{ isEditing ? 'Salvar Alterações' : 'Adicionar' }}</button>
+      <button *ngIf="isEditing" type="button" class="cancel-button" (click)="cancelEdit()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="pilotos-list-admin">
+    <h2>Pilotos Existentes</h2>
+    <div class="list-header">
+      <span>Nome</span>
+      <span>Equipe</span>
+      <span>Ações</span>
+    </div>
+    <div *ngFor="let piloto of pilotos" class="piloto-item">
+      <span>{{ piloto.nome }}</span>
+      <span>{{ piloto.equipe }}</span>
+      <div class="actions">
+        <button (click)="onEdit(piloto)" class="edit-button">Editar</button>
+        <button (click)="onDelete(piloto.id)" class="delete-button">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>

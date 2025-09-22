@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="header">
+    <h1>Resultado da Votação</h1>
+    <p>Ranking do Cabaço do Dia!</p>
+  </div>
+
+  <div class="resultados-list">
+    <div *ngIf="resultados.length === 0" class="no-results-message">
+      Nenhum voto registrado para esta corrida ainda.
+    </div>
+    <div *ngFor="let resultado of resultados; let i = index" class="piloto-ranking-card">
+      <span class="ranking-number">{{ i + 1 }}</span>
+      <img [src]="resultado.foto" [alt]="resultado.nome" class="piloto-foto">
+      <div class="card-content">
+        <h2>{{ resultado.nome }}</h2>
+        <p class="equipe">{{ resultado.equipe }}</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" [style.width.%]="resultado.porcentagem"></div>
+        </div>
+      </div>
+      <div class="votos-info">
+        <span class="votos-porcentagem">{{ resultado.porcentagem }}%</span>
+        <span class="votos-count">{{ resultado.votos }} votos</span>
+      </div>
+    </div>
+  </div>
+</div>

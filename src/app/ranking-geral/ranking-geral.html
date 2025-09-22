@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="header">
+    <h1>Ranking Geral</h1>
+    <p>Os maiores "Cabaços" de todos os tempos!</p>
+  </div>
+
+  <div class="ranking-list">
+    <div *ngIf="ranking.length === 0" class="no-results-message">
+      Nenhum piloto no ranking ainda.
+    </div>
+    <div *ngFor="let piloto of ranking; let i = index" class="piloto-ranking-card">
+      <span class="ranking-number">{{ i + 1 }}</span>
+      <img [src]="piloto.foto" [alt]="piloto.nome" class="piloto-foto">
+      <div class="card-content">
+        <h2>{{ piloto.nome }}</h2>
+        <p class="equipe">{{ piloto.equipe }}</p>
+      </div>
+      <div class="vitorias">
+        <span class="vitorias-count">{{ piloto.vitorias }}</span>
+        <p class="vitorias-label">vitórias</p>
+      </div>
+    </div>
+  </div>
+</div>

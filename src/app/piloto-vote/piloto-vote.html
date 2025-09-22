@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="header">
+    <h1>Vote no Cabaço do Dia</h1>
+    <p>Escolha o piloto que teve o pior desempenho.</p>
+  </div>
+
+<div class="pilotos-list">
+  <div *ngFor="let piloto of pilotos" class="piloto-card">
+    <img [src]="piloto.foto" [alt]="piloto.nome" class="piloto-foto">
+    <div class="card-content">
+      <h2>{{ piloto.nome }}</h2>
+      <p class="equipe">{{ piloto.equipe }}</p>
+    </div>
+    <button class="vote-button" (click)="votarPiloto(piloto.id)" [disabled]="votacaoFechada">Votar</button>
+  </div>
+</div>
+  <div *ngIf="statusMessage" class="status-message">{{ statusMessage }}</div>
+</div>
