@@ -17,7 +17,7 @@ interface Corrida {
 
 export class ApiService {
 
-  private apiUrl = 'http://localhost:8000'; // URL da sua API em Python
+  private apiUrl = process.env['NG_APP_API_URL'] // URL da sua API em Python
 
   constructor(private http: HttpClient) { }
 
