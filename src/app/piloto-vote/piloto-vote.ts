@@ -18,6 +18,7 @@ export class PilotoVote implements OnInit {
 
   corridaId: number | null = null;
   pilotos: any[] = [];
+  corrida: any = null;
   statusMessage: string = '';
   votacaoFechada: boolean = false;
 
@@ -33,6 +34,7 @@ export class PilotoVote implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.corridaId = Number(params.get('corridaId'));
       this.getPilotos(); // Chama a função para buscar os pilotos
+      this.loadCorridaDetails();
       this.checkVotacaoStatus();
     });
   }
@@ -57,6 +59,19 @@ export class PilotoVote implements OnInit {
     });
   }
   
+  loadCorridaDetails(): void {
+    if (this.corridaId === null) return;
+    this.apiService.getCorridas().subscribe(corridas => {
+      this.corrida = corridas.find(c => c.id === this.corridaId);
+      if (this.corrida) {
+        this.votacaoFechada = this.corrida.votacao_fechada;
+        if (this.votacaoFechada) {
+          this.statusMessage = 'A votação para esta corrida já foi encerrada.';
+        }
+      }
+    });
+  }
+
   votarPiloto(pilotoId: number): void {
     if (this.votacaoFechada) {
       this.toastr.warning('A votação para esta corrida já foi encerrada.'); // Use o toast
